@@ -8,7 +8,10 @@ public class E02PayrollCalculator {
 
 	//add a new static method calculatePay here
 
-
+    public static void calculatePay( String employee, double hourlyRate, double hoursWorked) {
+        double weeklyPay = hourlyRate * hoursWorked;
+        System.out.println(employee  + ":" + weeklyPay);
+    }
 
 	public static void main(String[] args) {
 		
@@ -28,6 +31,9 @@ public class E02PayrollCalculator {
 	      hoursWorked = 35;
 	      weeklyPay = hourlyRate * hoursWorked;
 	      System.out.println(employee  + ":" + weeklyPay);
+
+		  calculatePay("Fred", 12.5, 20);
+		  calculatePay("Amir", 15, 35);
 	}
 }
 

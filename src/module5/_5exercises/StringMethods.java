@@ -9,7 +9,7 @@ The methods you should write:
 
  * Now go back and rewrite your first method by having it call the second one.
 
- * Take a look at Java’s `split method, that splits a ``String`` into an array containing the parts split by the specified regular expression.
+ * Take a look at Javaï¿½s `split method, that splits a ``String`` into an array containing the parts split by the specified regular expression.
 
 	Here, assume the regular expression is simply " ", so that the input String is split into words.
 
@@ -23,8 +23,29 @@ The methods you should write:
 public class StringMethods {
 
 	public static String selfConcat(String s) {
-		return s + s;
+		return nConca(s, 2);
 	}
+
+	public static String nConca(String s, int n){
+		String[] result = new String[n];
+		for(int a = 0; a < n; a++){
+			
+			result[a] = s;
+		}
+		return join(result, " ");
+	}
+
+	public static String join(String[] array, String joiner) {
+        String result = ""; 
+        for (int i = 0; i < array.length; i++) {
+            result = result + array[i]; 
+			if(i < array.length - 1){
+				result = result + joiner;
+			}
+           
+        }
+        return result;
+    }
 
 	public static void main(String[] args) {
 
@@ -32,5 +53,6 @@ public class StringMethods {
 		// Testing the methods
 		//
 		System.out.println(selfConcat("echo"));
+		System.out.println(nConca("echo", 3));
 	}
 }

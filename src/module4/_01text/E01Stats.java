@@ -27,8 +27,34 @@ public class E01Stats {
 		//Using scanner to read from a file
 		//Modify and add to the code below
 		//to complete the exercise
+		int count = 0;
+		double sum = 0;
+		double max = Double.NEGATIVE_INFINITY; // better than 0
+        double min = Double.POSITIVE_INFINITY; // better than 1,000,000
+		
+		
+		
+		
 		while(in.hasNextDouble()) {
-			System.out.println(in.nextDouble());
+		    double number = in.nextDouble();
+			System.out.println(number);
+			count++;
+			sum += in.nextDouble();
+			if(number > max){
+				max = number;
+			}
+			if(number < min){
+				min = number;
+			}
+
+
 		}
+	    double average = sum/count;
+		System.out.println("The maximum is " + max + ".");
+		System.out.println("The minimum is " + min + ".");
+		System.out.println("There are " + count + " numbers in total.");
+		System.out.println("Their average is " + average + ".");
+		in.close();
 	}
+	
 }

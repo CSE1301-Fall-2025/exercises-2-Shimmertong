@@ -1,35 +1,35 @@
 package module4._02graphics;
 
 import edu.princeton.cs.introcs.StdDraw;
+import java.awt.Color;
 
 public class E06MouseFollower {
+    public static void main(String[] args) {
 
-	/*
-	 * Exercise: Use the to draw a point on the canvas that follows the mouse. 
-	 * To do this, you will need to acquire the coordinates of the mouse, 
-	 * then draw something at that point.
-	 * 
-	 * Once you get it working, experiment with the timings to see
-	 *  if you can get the image to "lag" behind the mouse.
-	 */
-	public static void main(String[] args) {
+        StdDraw.enableDoubleBuffering();
 
-		StdDraw.enableDoubleBuffering();
-		while (true) {
-			StdDraw.clear();
-			//
-			// Render one frame of your animation below here
-			//
+        // 起始位置（点的当前位置）
+        double px = 0.5;
+        double py = 0.5;
 
+        while (true) {
+            StdDraw.clear();
 
-			//  
-			// End of your frame
-			//
-			// Stdraw.show() achieves double buffering and
-			//   the pause(10) avoids the tight spinning loop
-			StdDraw.show();
-			StdDraw.pause(10);
-		}
+            // 鼠标当前位置
+            double mx = StdDraw.mouseX();
+            double my = StdDraw.mouseY();
 
-	}
+            // 让点只向鼠标靠近一点点（0.05 = 5% 的追随速度）
+            px = px + 0.05 * (mx - px);
+            py = py + 0.05 * (my - py);
+
+            // 画点
+            StdDraw.setPenColor(Color.RED);
+            StdDraw.setPenRadius(0.02);
+            StdDraw.point(px, py);
+
+            StdDraw.show();
+            StdDraw.pause(10);
+        }
+    }
 }
